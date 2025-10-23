@@ -2,6 +2,7 @@
 
 🐼
 
-![Panda](https://github.com/Kajciuch/Kajciuch/pliki/panda.png)
+![Panda](https://raw.githubusercontent.com/Kajciuch/Kajciuch/main/pliki/panda.png)
+
 
 
