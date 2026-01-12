@@ -1,4 +1,4 @@
-![Panda](https://raw.githubusercontent.com/Kajciuch/Kajciuch/main/pliki/panda.png)
+![jjk](https://raw.githubusercontent.com/Kajciuch/Kajciuch/main/pliki/jujutsu-kaisen.gif)
 
 
 
