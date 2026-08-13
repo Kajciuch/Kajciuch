@@ -2,7 +2,6 @@ name: banner
 
 on:
   schedule:
-    # poniedzialek 03:00 UTC
     - cron: "0 3 * * 1"
   workflow_dispatch:
   push:
