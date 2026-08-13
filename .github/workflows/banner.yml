@@ -31,7 +31,7 @@ jobs:
       - name: Render
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./banner/render.sh
+        run: bash ./banner/render.sh
 
       - name: Commit & push
         run: |
