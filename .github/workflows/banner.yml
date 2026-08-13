@@ -1,0 +1,46 @@
+name: banner
+
+on:
+  schedule:
+    # poniedzialek 03:00 UTC
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/banner.yml"
+      - "banner/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: banner
+  cancel-in-progress: true
+
+jobs:
+  render:
+    name: przelicz statystyki i zloz baner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Pillow
+        run: pip install --quiet pillow
+
+      - name: Render
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./banner/render.sh
+
+      - name: Commit & push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A pliki/hero-panda.gif
+          if git diff --staged --quiet; then
+            echo "statystyki bez zmian"
+          else
+            git commit -m "chore(banner): odswiez licznik technologii"
+            git push
+          fi
